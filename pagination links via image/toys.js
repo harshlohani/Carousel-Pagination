@@ -1,60 +1,60 @@
-const list_items = {
-	"Toys": [{
+const toys = 
+	 [{
         "ProductName": "Teddy",
-        "imageURL": "images\\plush.jpg",
+        "imageURL": "../images/plush.jpg",
         "Description": "Soft teddy toy",
         "Price": 200
     },
     {
         "ProductName": "boat",
-        "imageURL": "images\\boat.jpg",
+        "imageURL": "../images/boat.jpg",
         "Description": "Plastic Boat",
         "Price": 100
     },
     {
         "ProductName": "Duck",
-        "imageURL": "images\\Duck.jpg",
+        "imageURL": "../images/Duck.jpg",
         "Description": "Soft Duck for bathing",
         "Price": 50
     },
     {
         "ProductName": "Mario",
-        "imageURL": "images\\Mario.jpg",
+        "imageURL": "../images/Mario.jpg",
         "Description": "It's me ,Mario!!",
         "Price": 300
     },
     {
         "ProductName": "Pikachu",
-        "imageURL": "images\\Pikachu.jpg",
+        "imageURL": "../images/Pikachu.jpg",
         "Description": "Pika, Pika",
         "Price": 200
     },
     {
         "ProductName": "Teddy",
-        "imageURL": "images\\plush.jpg",
+        "imageURL": "../images/plush.jpg",
         "Description": "Soft teddy toy",
         "Price": 200
     },
     {
         "ProductName": "Pinochio",
-        "imageURL": "images\\Pinchio.jpg",
+        "imageURL": "../images/Pinchio.jpg",
         "Description": "Long nose",
         "Price": 125
     },
     {
         "ProductName": "Rail",
-        "imageURL": "images\\Rail.jpg",
+        "imageURL": "../images/Rail.jpg",
         "Description": "Thomas the engine",
         "Price": 100
     },
     {
         "ProductName": "Soldiers",
-        "imageURL": "images\\Soldiers.jpg",
+        "imageURL": "../images/Soldiers.jpg",
         "Description": "Live and let Die",
         "Price": 100
     }
 ]
-};
+
 
 const list_element = document.getElementById('list');
 const pagination_element = document.getElementById('pagination');
@@ -66,15 +66,18 @@ function DisplayList (items, wrapper, rows_per_page, page) {
 	page--;
 
 	let start = rows_per_page * page;
-	let end = start + rows_per_page;
+    let end = start + rows_per_page;
+    // items = items.toString();
 	let paginatedItems = items.slice(start, end);
 
 	for (let i = 0; i < paginatedItems.length; i++) {
 		let item = paginatedItems[i];
 
-		let item_element = document.createElement('div');
+        let item_element = document.createElement('div');
+        const innerHtml = `<img style="height:200px;width:150px" src=${item.imageURL}>
+        <span><b>${item.ProductName}</b></span>`
 		item_element.classList.add('item');
-		item_element.innerText = item;
+		item_element.innerHTML  = innerHtml;
 		
 		wrapper.appendChild(item_element);
 	}
@@ -109,5 +112,5 @@ function PaginationButton (page, items) {
 	return button;
 }
 
-DisplayList(list_items, list_element, rows, current_page);
-SetupPagination(list_items, pagination_element, rows);
+DisplayList(toys, list_element, rows, current_page);
+SetupPagination(toys, pagination_element, rows);
