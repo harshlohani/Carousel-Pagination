@@ -1,60 +1,58 @@
-const toys = 
-	 [{
-        "ProductName": "Teddy",
+const Electronics= [{
+        "ProductName": "Refrigerator",
         "imageURL": "../images/plush.jpg",
-        "Description": "Soft teddy toy",
+        "Description": "with deep freeze option",
         "Price": 200
     },
     {
-        "ProductName": "boat",
+        "ProductName": "Washing Machine",
         "imageURL": "../images/boat.jpg",
-        "Description": "Plastic Boat",
+        "Description": "6.5 kg load capacity, fully automatic",
         "Price": 100
     },
     {
-        "ProductName": "Duck",
+        "ProductName": "LCD Screen",
         "imageURL": "../images/Duck.jpg",
-        "Description": "Soft Duck for bathing",
+        "Description": "15 inch display",
         "Price": 50
     },
     {
-        "ProductName": "Mario",
+        "ProductName": "Mobile",
         "imageURL": "../images/Mario.jpg",
-        "Description": "It's me ,Mario!!",
+        "Description": "Latest snapdragon 865",
         "Price": 300
     },
     {
-        "ProductName": "Pikachu",
+        "ProductName": "PS5",
         "imageURL": "../images/Pikachu.jpg",
-        "Description": "Pika, Pika",
+        "Description": "Aukaat se bahar",
         "Price": 200
     },
     {
-        "ProductName": "Teddy",
+        "ProductName": "Tubelight",
         "imageURL": "../images/plush.jpg",
-        "Description": "Soft teddy toy",
+        "Description": "10 watt",
         "Price": 200
     },
     {
-        "ProductName": "Pinochio",
-        "imageURL": "../images/Pinochio.jpg",
-        "Description": "Long nose",
+        "ProductName": "Laptop",
+        "imageURL": "../images/Pinchio.jpg",
+        "Description": "intel i-7, 1TB SSD",
         "Price": 125
     },
     {
-        "ProductName": "Rail",
+        "ProductName": "Fan",
         "imageURL": "../images/Rail.jpg",
-        "Description": "Thomas the engine",
+        "Description": "Havells",
         "Price": 100
     },
     {
-        "ProductName": "Soldiers",
+        "ProductName": "Extension Cable",
         "imageURL": "../images/Soldiers.jpg",
-        "Description": "Live and let Die",
+        "Description": "4 chhedon wala",
         "Price": 100
     }
 ]
-
 
 const list_element = document.getElementById('list');
 const pagination_element = document.getElementById('pagination');
@@ -67,17 +65,16 @@ function DisplayList (items, wrapper, rows_per_page, page) {
 
 	let start = rows_per_page * page;
     let end = start + rows_per_page;
-    // items = items.toString();
+    items = items.toString();
     let paginatedItems = items.slice(start, end);
 
-	for (let i = 0; i < paginatedItems.length; i++) {
+	    for (let i = 0; i < paginatedItems.length; i++) {
 		let item = paginatedItems[i];
-
-        let item_element = document.createElement('div');
+    let item_element = document.createElement('div');
         const innerHtml = `<img style="height:200px;width:200px" src=${item.imageURL}>
         <span><b>${item.ProductName}</b></span>`
 		item_element.classList.add('item');
-		item_element.innerHTML  = innerHtml;
+		item_element.innerHTML = innerHtml;
 		
 		wrapper.appendChild(item_element);
 	}
@@ -112,5 +109,5 @@ function PaginationButton (page, items) {
 	return button;
 }
 
-DisplayList(toys, list_element, rows, current_page);
-SetupPagination(toys, pagination_element, rows);
+DisplayList(Electronics, list_element, rows, current_page);
+SetupPagination(Electronics, pagination_element, rows);
